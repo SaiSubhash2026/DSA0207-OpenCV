@@ -1,0 +1,18 @@
+import cv2
+path = r"C:\Users\SAI SUBHASH\OneDrive\Pictures\Screenshots\ip8.png"
+src = cv2.imread(path)
+window_name = 'Image'
+rotate = int(input("Enter 1 for 180-degree rotation, 2 for 90-degree rotation, or 3 for 270-degree rotation: "))
+if rotate == 1:
+    image = cv2.rotate(src, cv2.ROTATE_180)
+elif rotate == 2:
+    image = cv2.rotate(src, cv2.ROTATE_90_COUNTERCLOCKWISE)
+elif rotate == 3:
+    image = cv2.rotate(src, cv2.ROTATE_90_CLOCKWISE)
+else:
+    print("Invalid input. Please enter 1 for 180-degree, 2 for 90-degree, or 3 for 270-degree rotation.")
+if image is not None:
+    cv2.imshow(window_name, image)
+    cv2.waitKey(0)
+else:
+    print("Image not found or rotation not performed.")
